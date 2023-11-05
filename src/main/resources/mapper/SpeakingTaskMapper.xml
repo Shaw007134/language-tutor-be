@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.SpeakingTaskMapper">
+  <resultMap id="BaseResultMap" type="com.zsy.language_tutor.model.SpeakingTask">
+    <!--@mbg.generated-->
+    <!--@Table speaking_task-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="task_type" jdbcType="INTEGER" property="taskType" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="preparation_time" jdbcType="INTEGER" property="preparationTime" />
+    <result column="selection_time" jdbcType="INTEGER" property="selectionTime" />
+    <result column="recording_time" jdbcType="INTEGER" property="recordingTime" />
+    <result column="images" jdbcType="VARCHAR" property="images" />
+    <result column="descs" jdbcType="VARCHAR" property="descs" />
+    <result column="audio" jdbcType="VARCHAR" property="audio" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, task_type, title, content, preparation_time, selection_time, recording_time, 
+    images, descs, audio, created_at, updated_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from speaking_task
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from speaking_task
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zsy.language_tutor.model.SpeakingTask" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into speaking_task (task_type, title, content, 
+      preparation_time, selection_time, recording_time, 
+      images, descs, audio, 
+      created_at, updated_at)
+    values (#{taskType,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}, 
+      #{preparationTime,jdbcType=INTEGER}, #{selectionTime,jdbcType=INTEGER}, #{recordingTime,jdbcType=INTEGER}, 
+      #{images,jdbcType=VARCHAR}, #{descs,jdbcType=VARCHAR}, #{audio,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zsy.language_tutor.model.SpeakingTask" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into speaking_task
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskType != null">
+        task_type,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="preparationTime != null">
+        preparation_time,
+      </if>
+      <if test="selectionTime != null">
+        selection_time,
+      </if>
+      <if test="recordingTime != null">
+        recording_time,
+      </if>
+      <if test="images != null">
+        images,
+      </if>
+      <if test="descs != null">
+        descs,
+      </if>
+      <if test="audio != null">
+        audio,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskType != null">
+        #{taskType,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="preparationTime != null">
+        #{preparationTime,jdbcType=INTEGER},
+      </if>
+      <if test="selectionTime != null">
+        #{selectionTime,jdbcType=INTEGER},
+      </if>
+      <if test="recordingTime != null">
+        #{recordingTime,jdbcType=INTEGER},
+      </if>
+      <if test="images != null">
+        #{images,jdbcType=VARCHAR},
+      </if>
+      <if test="descs != null">
+        #{descs,jdbcType=VARCHAR},
+      </if>
+      <if test="audio != null">
+        #{audio,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zsy.language_tutor.model.SpeakingTask">
+    <!--@mbg.generated-->
+    update speaking_task
+    <set>
+      <if test="taskType != null">
+        task_type = #{taskType,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="preparationTime != null">
+        preparation_time = #{preparationTime,jdbcType=INTEGER},
+      </if>
+      <if test="selectionTime != null">
+        selection_time = #{selectionTime,jdbcType=INTEGER},
+      </if>
+      <if test="recordingTime != null">
+        recording_time = #{recordingTime,jdbcType=INTEGER},
+      </if>
+      <if test="images != null">
+        images = #{images,jdbcType=VARCHAR},
+      </if>
+      <if test="descs != null">
+        descs = #{descs,jdbcType=VARCHAR},
+      </if>
+      <if test="audio != null">
+        audio = #{audio,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zsy.language_tutor.model.SpeakingTask">
+    <!--@mbg.generated-->
+    update speaking_task
+    set task_type = #{taskType,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR},
+      preparation_time = #{preparationTime,jdbcType=INTEGER},
+      selection_time = #{selectionTime,jdbcType=INTEGER},
+      recording_time = #{recordingTime,jdbcType=INTEGER},
+      images = #{images,jdbcType=VARCHAR},
+      descs = #{descs,jdbcType=VARCHAR},
+      audio = #{audio,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <sql id="Query_Conditions">
+    <where>
+      <if test="taskType != null">
+        and task_type = #{taskType,jdbcType=INTEGER}
+      </if>
+      <if test="title != null and title != ''">
+        and title like CONCAT('%', #{title,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="content != null and content != ''">
+        and content like CONCAT('%', #{content,jdbcType=LONGVARCHAR}, '%')
+      </if>
+    </where>
+  </sql>
+
+  <select id="getQuestions" parameterType="com.zsy.language_tutor.request.SpeakingTaskQuery" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from speaking_task
+    <include refid="Query_Conditions" />
+    limit #{offset}, #{limit}
+  </select>
+
+  <select id="countSpeakingTasks" parameterType="com.zsy.language_tutor.request.SpeakingTaskQuery" resultType="int">
+    select count(*) from speaking_task
+    <include refid="Query_Conditions" />
+  </select>
+
+</mapper>
